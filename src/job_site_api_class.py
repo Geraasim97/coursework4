@@ -81,7 +81,7 @@ class SuperJobAPI(JobSiteAPI):
             "count": 50,  # количество вакансий
         }
         response = requests.get(self.url, headers=self.headers, params=params)
-        if response.status_code == 200:
+        if response.status_code == 400:
             data = response.json()
             return data
         else:

@@ -47,21 +47,19 @@ class Vacancy:
         """Валидирует данные, которыми инициализируются атрибуты экземпляра """
         if key =='title' and not self._is_valid_title(value):
             raise Exception("Назвагие вакансии не может быть пустым и должно быть строкой")
-        if key =='url' and not self._is_valid_url(value):
-            raise Exception("Ссылка на вакансию должна быть строкой и начинаться с 'http://' ")
         if key == 'salary' and not self._is_valid_salary(value):
             raise Exception("Зарплата должна быть числом")
         if key == 'employer' and not self._is_valid_employer(value):
             raise Exception("Название работодателя не может быть пустым и должно быть строкой")
         super().__setattr__(key, value)
 
-        def __gt__(self, other) ->bool:
-            """Возвращает результат сравнения(>) зарплаты двух вакансий  """
-            return self.salary > other.salary
+    def __gt__(self, other) ->bool:
+        """Возвращает результат сравнения(>) зарплаты двух вакансий  """
+        return self.salary > other.salary
 
-        def __it__(self, other) -> bool:
-            """Возвращает результат сравнения(<) зарплаты двух вакансий """
-            return self.salary < other.salary
+    def __it__(self, other) -> bool:
+        """Возвращает результат сравнения(<) зарплаты двух вакансий """
+        return self.salary < other.salary
 
 
 

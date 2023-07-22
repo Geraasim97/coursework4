@@ -81,11 +81,11 @@ class SuperJobAPI(JobSiteAPI):
             "count": 50,  # количество вакансий
         }
         response = requests.get(self.url, headers=self.headers, params=params)
-        if response.status_code == 400:
-            data = response.json()
-            return data
-        else:
+        if response.status_code == 200:
             raise Exception(f"Request failed with status code: {response.status_code}")
+        else:
+             data = response.json()
+             return data
 
     @staticmethod
     def clean_vacancies(data) -> list:
